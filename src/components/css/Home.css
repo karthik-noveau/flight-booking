@@ -1,0 +1,156 @@
+* {
+    font-family: sans-serif;
+}
+
+/* slider */
+.slide_cont1 {
+    position: relative;
+    width: 90%;
+    height: 460px;
+}
+
+.slide_cont1 img {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+/* offer */
+.offer_cont {
+    margin-top: -30px;
+    display: flex;
+    justify-content: center;
+}
+
+.offer_cont img {
+    z-index: 1;
+    border-radius: 4px;
+}
+
+/* main trip location  */
+
+.form_cont {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.form_main_cont {
+    z-index: 3;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form_cont .f_1 {
+    margin: -4px 26px 15px 22px;
+}
+
+.form_cont .f_2 {
+    margin: 16px 26px 14px 22px;
+
+}
+
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 9.5px 11px !important;
+    font-size: 14.8px !important;
+
+}
+
+.f_b {
+    margin-right: 20px !important;
+}
+
+.css-sghohy-MuiButtonBase-root-MuiButton-root {
+    background-color: #ff8600 !important;
+    box-shadow: 1px 1px 18px 1px #ff860059 !important;
+    padding: 7px 23px !important;
+}
+.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+    color: #ff8600 !important;
+}
+.css-bkrceb-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+    background-color: #ff8600 !important;
+}
+
+
+/* popular destination */
+.img_cont {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img_cont .txt_1 {
+    margin: 45px 0px 27px 0px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.img_main_cont {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.img_1 {
+    position: relative;
+    width: 184px;
+    height: 235px;
+    box-shadow: inset 0px -79px 59px -23px #1e1e1e;
+    border-radius: 8px;
+    margin: 20px;
+    cursor: pointer;
+
+}
+
+.img_1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    z-index: -1;
+    position: relative;
+
+
+}
+
+.img_1 .img_1_txt {
+    position: absolute;
+    bottom: 13px;
+    color: white;
+    margin-left: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.img_1 .img_1_txt p {
+    margin-top: 5px;
+    ;
+}
+
+/* details */
+.details_main_cont {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.details_cont {
+    width: 85%;
+    margin-bottom: 50px;
+}
+
+.details_cont p:nth-child(1) {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
