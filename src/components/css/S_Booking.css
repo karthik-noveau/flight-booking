@@ -57,7 +57,7 @@
     margin-top: 15px;
 }
 
-/* flight booking detail */
+/* travel details */
 .result_cont{
     width:80%;
     display: flex;
@@ -148,9 +148,7 @@
     justify-content: center;
 }
 .heading_title{
-    width: 82%;
- 
-    
+    width: 82%;   
 }
  
 table{
@@ -162,5 +160,8 @@ table tr td{
     width: 10%;
     text-align: center;
 }
+
+
+
 
 
