@@ -3,6 +3,7 @@ import {Route, Routes} from 'react-router-dom'
 import Home from "./components/pages/Home";
 import Footer from "./components/pages/Footer";
 import S_Booking from "./components/pages/S_Booking";
+ 
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>} exact/>
       <Route path='/S_Booking' element={<S_Booking/>}/>
+ 
  
     </Routes>
 

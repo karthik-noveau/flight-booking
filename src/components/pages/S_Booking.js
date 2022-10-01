@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -25,6 +25,13 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 
 
+import { useLocation } from 'react-router-dom';
+import moment from 'moment';
+
+
+import emailjs from '@emailjs/browser';
+
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -35,23 +42,110 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
+
+
 function S_Booking() {
-    const [value, setValue] = React.useState(dayjs());
-    console.log("booking result " + value);
-    const dateHandler = (newValue) => {
-        setValue(newValue);
-        console.log(value)
-    }
+    const location = useLocation();
+    const linkdata = location.state.data;
 
 
+    useEffect(() => {
+        setFromValue(linkdata.fromvalue)
+        setToValue(linkdata.tovalue)
+        setDateValue(dayjs(linkdata.datevalue))
+
+
+    }, [])
+
+
+    const d1 = new Date();
+    const d2 = moment(d1).format("YYYY-MM-DD")
+
+    const [fromValue, setFromValue] = useState("");
+    const [toValue, setToValue] = useState("");
+    const [dateValue, setDateValue] = useState((dayjs(d2)));
+
+    // pop winddow state
     const [open, setOpen] = React.useState(false);
-
     const handleClickOpen = () => {
         setOpen(true);
     };
     const handleClose = () => {
         setOpen(false);
     };
+
+    // send to the emailjs
+    const [nameValue, setNameValue] = useState('')
+    const [emailValue, setEmailValue] = useState('')
+    const [phnoValue, setPhnoValue] = useState('')
+
+    const [sendData, setSendData] = useState(
+        {
+            namevalue: '',
+            emailvalue: '',
+            phnovalue: '',
+            fromvalue: '',
+            tovalue: '',
+            datevalue: ''
+        }
+    )
+
+
+
+    const buttonHandler = () => {
+        setSendData({
+            namevalue: nameValue,
+            emailvalue: emailValue,
+            phnovalue: phnoValue,
+            fromvalue: linkdata.fromvalue,
+            tovalue: linkdata.tovalue,
+            datevalue: linkdata.datevalue
+        })
+
+        emailjs.send('service_jo8uwra', 'template_wmzwm2a', sendData, 'M2EVIoCzUjDt4ZcXP')
+            .then(response => {
+                console.log('SUCCESS!', response);
+
+            }, error => {
+                console.log('FAILED...', error);
+            });
+
+        console.log("clicked after")
+    }
+
+
+    const nameHandler = (e) => {
+        setNameValue(e.target.value)
+
+    }
+    const emailHandler = (e) => {
+        setEmailValue(e.target.value)
+
+    }
+    const phnoHandler = (e) => {
+        setPhnoValue(e.target.value)
+
+    }
+
+
+    useEffect(() => {
+        setSendData({
+            namevalue: nameValue,
+            emailvalue: emailValue,
+            phnovalue: phnoValue,
+            fromvalue: linkdata.fromvalue,
+            tovalue: linkdata.tovalue,
+            datevalue: linkdata.datevalue
+        })
+
+    }, [nameValue, emailValue, phnoValue])
+
+
+
+
+
+
+
 
 
 
@@ -70,57 +164,49 @@ function S_Booking() {
 
                     <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }} className="f_1">
 
-                        <InputLabel id="demo-simple-select-standard-label" style={{ color: "#ff8600" }}>Age</InputLabel>
+                        <InputLabel id="demo-simple-select-standard-label" style={{ color: "#ff8600" }}>From</InputLabel>
                         <Select
                             labelId="demo-simple-select-standard-label"
                             id="demo-simple-select-standard"
                             label="From"
-
+                            // onChange={fromStateHandler}
+                            value={fromValue}
                         >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={10}>Chennai</MenuItem>
-                            <MenuItem value={20}>MUmbai</MenuItem>
-                            <MenuItem value={30}>Namakkal</MenuItem>
+                            <MenuItem value={fromValue}>{fromValue}</MenuItem>
                         </Select>
-
                     </FormControl>
 
 
                     <RiArrowLeftRightFill />
 
                     <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }} className="f_1">
-                        <InputLabel id="demo-simple-select-standard-label" style={{ color: "#ff8600" }}>Age</InputLabel>
+
+                        <InputLabel id="demo-simple-select-standard-label" style={{ color: "#ff8600" }}>To</InputLabel>
                         <Select
                             labelId="demo-simple-select-standard-label"
                             id="demo-simple-select-standard"
-                            label="To"
+                            label="From"
+                            // onChange={fromStateHandler}
+                            value={toValue}
                         >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
+                            <MenuItem value={toValue}>{toValue}</MenuItem>
                         </Select>
                     </FormControl>
 
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <Stack spacing={3} className="f_2">
                             <DesktopDatePicker
-                                label="For desktop"
-                                value={value}
+                                label="Selected date"
+                                value={dateValue}
                                 minDate={dayjs('2017-01-01')}
-                                onChange={dateHandler}
                                 style={{ color: "#ff8600" }}
                                 renderInput={(params) => <TextField {...params} />}
                             />
                         </Stack>
                     </LocalizationProvider>
 
-                    <Stack spacing={2} direction="row" className='f_b'>
-                        <Button variant="contained">Search</Button>
+                    <Stack spacing={2} direction="row" className='f_bb'>
+                        <Button variant="contained" className='f_b_1'>Search</Button>
                     </Stack>
 
                 </form>
@@ -195,7 +281,7 @@ function S_Booking() {
                     <form>
 
                         <DialogContent>
-                            <DialogContentText>
+                            <DialogContentText className="p_txt">
                                 Enter your details
                             </DialogContentText>
                             <TextField
@@ -206,6 +292,9 @@ function S_Booking() {
                                 type="text"
                                 fullWidth
                                 variant="standard"
+                                className='tt1'
+                                onChange={nameHandler}
+                                required
                             />
                         </DialogContent>
                         <DialogContent>
@@ -217,6 +306,8 @@ function S_Booking() {
                                 type="email"
                                 fullWidth
                                 variant="standard"
+                                className='tt1'
+                                onChange={emailHandler}
                             />
                         </DialogContent>
                         <DialogContent>
@@ -224,18 +315,19 @@ function S_Booking() {
                                 autoFocus
                                 margin="dense"
                                 id="name"
-                                label="phone nu"
+                                label="phone number"
                                 type="number"
                                 fullWidth
                                 variant="standard"
-                                required
+                                className='tt1'
+                                onChange={phnoHandler}
                             />
 
                         </DialogContent>
                         <DialogContent>
 
                             <Stack spacing={2} direction="row" className='f_b'>
-                                <Button variant="contained">Book now</Button>
+                                <Button variant="contained" className="f_bbb" onClick={buttonHandler}>Book now</Button>
                             </Stack>
                         </DialogContent>
                     </form>

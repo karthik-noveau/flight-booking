@@ -28,13 +28,13 @@
 
 }
 
-.f_b {
+.f_bb {
     margin-right: 20px !important;
 }
 
-.css-sghohy-MuiButtonBase-root-MuiButton-root {
-    background-color: #1571f1 !important;
-    box-shadow: 1px 1px 4px 1px #1571f1 !important;
+.f_bb .f_b_1 {
+    background-color: black !important;
+    box-shadow: 1px 1px 2px 0px black !important;
     padding: 7px 23px !important;
 }
 
@@ -57,6 +57,30 @@
     margin-top: 15px;
 }
 
+
+
+/* heading */
+.main_heading_title{
+    margin-top:20px;
+    display: flex;
+    justify-content: center;
+}
+.heading_title{
+    width: 82%;   
+}
+ 
+table{
+    height:39px;
+    width: 100%;
+    background-color: #ebebeb;
+}
+table tr td{
+    width: 10%;
+    text-align: center;
+}
+
+
+
 /* travel details */
 .result_cont{
     width:80%;
@@ -67,6 +91,7 @@
     padding: 12px 16px;
     position:relative;
     cursor: pointer;
+    margin: 6px;
 }
 .r_d1{
     margin-top:12px;
@@ -141,26 +166,49 @@
 
 
 
-/* heading */
-.main_heading_title{
-    margin-top:20px;
+
+
+/* pop up window  */
+.p_txt{
+    color:#000000b8 !important;
+    font-weight:bold !important;
+    font-size:18px !important;
+    margin-bottom: 10px !important;
+}
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.87);
+    -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 4px;
+    box-shadow: 0px 11px 15px -7pxrgba(0,0,0,0.2),0px 24px 38px 3pxrgba(0,0,0,0.14),0px 9px 46px 8pxrgba(0,0,0,0.12);
+    margin: 32px;
+    position: relative;
+    overflow-y: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-}
-.heading_title{
-    width: 82%;   
-}
- 
-table{
-    height:39px;
-    width: 100%;
-    background-color: #ebebeb;
-}
-table tr td{
-    width: 10%;
-    text-align: center;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    max-height: calc(100% - 64px);
+    /* max-width: 628px; */
+    width: 437px;
+    padding: 20px;
 }
 
+
+ 
+.tt1 .css-1a1fmpi-MuiInputBase-root-MuiInput-root:after {
+    border-bottom: 2px solid #ff8600 ;
+}
+.tt1  .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    color: #ff8600 ;
+}
+.f_b .f_bbb {
+    background-color: #ff8600 !important;
+}
 
 
 

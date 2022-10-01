@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 
 import { Link } from 'react-router-dom'
 import { RiArrowLeftRightFill } from 'react-icons/ri'
@@ -20,6 +20,9 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import Button from '@mui/material/Button';
 import '../css/Home.css'
 
+import { stateName } from '../Data/statesName';
+import moment from 'moment';
+
 function Home() {
     const settings = {
         draggable: true,
@@ -33,12 +36,63 @@ function Home() {
         cssEase: 'ease-in-out',
         touchThreshold: 100
     };
+    // const d = new Date();
+    // const dy = d.getFullYear()
+    // const dm = d.getMonth() + 1
+    // const dd = d.getDate()
+    const d1 = new Date();
+    const d2 = moment(d1).format("YYYY-MM-DD")
 
-    const [value, setValue] = React.useState(dayjs());
+    const [value, setValue] = useState(dayjs(d2));
+    const [fromValue, setFromValue] = useState("1");
+    const [toValue, setToValue] = useState("1");
+    const [dateValue, setDateValue] = useState('')
 
-    const handleChange = (newValue) => {
-        setValue(newValue);
-    };
+
+    const [data, setData] = useState({
+        fromvalue: '',
+        tovalue: '',
+        datevalue: ''
+    })
+
+
+    const fromStateHandler = (e) => {
+        setFromValue(e.target.value)
+    }
+    const toStateHandler = (e) => {
+        setToValue(e.target.value)
+    }
+
+
+    const dateStateHandler = (e) => {
+        setValue(e)
+        setDateValue(moment(e.$d).format('YYYY-MM-DD'))
+        console.log("date clicked " + moment(e.$d).format('YYYY-MM-DD'))
+
+    }
+
+    useEffect(() => {
+        setData({
+            fromvalue: fromValue,
+            tovalue: toValue,
+            datevalue: dateValue
+        })
+    }, [fromValue, toValue, dateValue])
+
+    const LinkHandler = () => {
+        setData({
+            fromvalue: fromValue,
+            tovalue: toValue,
+            datevalue: dateValue
+        })
+
+    }
+    console.log("d1 " + data.fromvalue)
+    console.log("d2 " + data.tovalue)
+    // console.log("d3 " + moment(value).format('YYYY-MM-DD'))
+
+
+
 
 
 
@@ -64,18 +118,23 @@ function Home() {
                     <form className='form_cont'>
 
                         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }} className="f_1">
-                            <InputLabel id="demo-simple-select-standard-label" style={{ color: "#ff8600" }}>Age</InputLabel>
+                            <InputLabel id="demo-simple-select-standard-label" style={{ color: "#ff8600" }}>From</InputLabel>
                             <Select
                                 labelId="demo-simple-select-standard-label"
                                 id="demo-simple-select-standard"
-                                label="Age"
+                                label="From"
+                                onChange={fromStateHandler}
                             >
                                 <MenuItem value="">
-                                    <em>None</em>
+
                                 </MenuItem>
-                                <MenuItem value={10}>Ten</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem>
+                                {
+                                    stateName.map((item) => {
+                                        return (
+                                            <MenuItem value={item} >{item}</MenuItem>
+                                        )
+                                    })
+                                }
                             </Select>
 
                         </FormControl>
@@ -84,30 +143,34 @@ function Home() {
                         <RiArrowLeftRightFill />
 
                         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }} className="f_1">
-                            <InputLabel id="demo-simple-select-standard-label" style={{ color: "#ff8600" }}>Age</InputLabel>
+                            <InputLabel id="demo-simple-select-standard-label" style={{ color: "#ff8600" }}>To</InputLabel>
                             <Select
                                 labelId="demo-simple-select-standard-label"
                                 id="demo-simple-select-standard"
-                                label="Age"
+                                label="To"
+                                onChange={toStateHandler}
                             >
                                 <MenuItem value="">
                                     <em>None</em>
                                 </MenuItem>
-                                <MenuItem value={10}>Ten</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem>
+                                {
+                                    stateName.map((item) => {
+                                        return (
+                                            <MenuItem value={item}>{item}</MenuItem>
+                                        )
+                                    })
+                                }
                             </Select>
                         </FormControl>
 
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <Stack spacing={3} className="f_2">
                                 <DesktopDatePicker
-                                    label="For desktop"
+                                    label="Selected date"
                                     value={value}
                                     minDate={dayjs('2017-01-01')}
-                                    onChange={(newValue) => {
-                                        setValue(newValue);
-                                    }}
+
+                                    onChange={dateStateHandler}
                                     style={{ color: "#ff8600" }}
                                     renderInput={(params) => <TextField {...params} />}
                                 />
@@ -115,7 +178,16 @@ function Home() {
                         </LocalizationProvider>
 
                         <Stack spacing={2} direction="row" className='f_b'>
-                            <Button variant="contained" component={Link} to="/S_Booking" >Search</Button>
+                            <Link
+                                // to='/S_Booking'
+                                to={{ pathname: '/S_Booking' }}
+                                state={{ data: data }}
+                                onClick={LinkHandler}
+                            >
+
+                                <Button variant="contained" className='f_b_1'>Search</Button>
+                            </Link>
+
                         </Stack>
 
                     </form>

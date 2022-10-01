@@ -65,7 +65,7 @@
     margin-right: 20px !important;
 }
 
-.css-sghohy-MuiButtonBase-root-MuiButton-root {
+.f_b .f_b_1{
     background-color: #ff8600 !important;
     box-shadow: 1px 1px 18px 1px #ff860059 !important;
     padding: 7px 23px !important;
@@ -148,7 +148,10 @@
     width: 85%;
     margin-bottom: 50px;
 }
-
+.details_cont p{
+    color:#3a3a3a;
+    letter-spacing: 0.3px;;
+}
 .details_cont p:nth-child(1) {
     font-size: 20px;
     font-weight: 600;
