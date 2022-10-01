@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -31,6 +32,11 @@ import moment from 'moment';
 
 import emailjs from '@emailjs/browser';
 
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormLabel from '@mui/material/FormLabel';
+
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -46,6 +52,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 
 function S_Booking() {
     const location = useLocation();
+    const history =useNavigate();
     const linkdata = location.state.data;
 
 
@@ -78,6 +85,7 @@ function S_Booking() {
     const [nameValue, setNameValue] = useState('')
     const [emailValue, setEmailValue] = useState('')
     const [phnoValue, setPhnoValue] = useState('')
+    const [accomValue, setAccomValue] =useState('')
 
     const [sendData, setSendData] = useState(
         {
@@ -86,7 +94,9 @@ function S_Booking() {
             phnovalue: '',
             fromvalue: '',
             tovalue: '',
-            datevalue: ''
+            datevalue: '',
+            accomvalue:'',
+           
         }
     )
 
@@ -96,21 +106,25 @@ function S_Booking() {
         setSendData({
             namevalue: nameValue,
             emailvalue: emailValue,
-            phnovalue: phnoValue,
+            phnovalue: phnoValue, 
             fromvalue: linkdata.fromvalue,
             tovalue: linkdata.tovalue,
-            datevalue: linkdata.datevalue
+            datevalue: linkdata.datevalue,
+            accomvalue:accomValue,
         })
-
+        
         emailjs.send('service_jo8uwra', 'template_wmzwm2a', sendData, 'M2EVIoCzUjDt4ZcXP')
             .then(response => {
                 console.log('SUCCESS!', response);
 
             }, error => {
                 console.log('FAILED...', error);
-            });
+            }).then(()=>{
+                history('/')
+            })
 
-        console.log("clicked after")
+
+
     }
 
 
@@ -126,19 +140,23 @@ function S_Booking() {
         setPhnoValue(e.target.value)
 
     }
+    const accomHandler =(e)=>{
+        setAccomValue(e.target.value)
+    }
 
 
     useEffect(() => {
         setSendData({
             namevalue: nameValue,
             emailvalue: emailValue,
-            phnovalue: phnoValue,
+            phnovalue: phnoValue, 
             fromvalue: linkdata.fromvalue,
             tovalue: linkdata.tovalue,
-            datevalue: linkdata.datevalue
+            datevalue: linkdata.datevalue,
+            accomvalue:accomValue,
         })
 
-    }, [nameValue, emailValue, phnoValue])
+    }, [nameValue, emailValue, phnoValue, accomValue])
 
 
 
@@ -324,12 +342,30 @@ function S_Booking() {
                             />
 
                         </DialogContent>
+
+                        <FormControl style={{marginLeft:"15px", marginTop:"27px"}}>
+                            <FormLabel id="demo-radio-buttons-group-label">Accomodation</FormLabel>
+                            <RadioGroup
+                                aria-labelledby="demo-radio-buttons-group-label"
+                                defaultValue="Hotel"
+                                name="radio-buttons-group"
+                                style={{color:"black"}}
+                                onChange={accomHandler}
+                            >
+                                <FormControlLabel value="Hotel" control={<Radio  style={{color:"black"}}/>} label="Hotel"  />
+                                <FormControlLabel value="Hostel" control={<Radio style={{color:"black"}} />} label="Hostel" />
+                                <FormControlLabel value="No need" control={<Radio style={{color:"black"}} />} label="No need" />
+                                
+                            </RadioGroup>
+                        </FormControl>
+
                         <DialogContent>
 
                             <Stack spacing={2} direction="row" className='f_b'>
                                 <Button variant="contained" className="f_bbb" onClick={buttonHandler}>Book now</Button>
                             </Stack>
                         </DialogContent>
+
                     </form>
 
                 </BootstrapDialog>

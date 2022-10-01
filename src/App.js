@@ -17,7 +17,7 @@ function App() {
  
     </Routes>
 
-    <Footer/>
+    <Footer style={{position:"absolute",bottom:"0px"}}/>
     
    </div>
   );

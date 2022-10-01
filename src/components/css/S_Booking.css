@@ -210,6 +210,11 @@ table tr td{
     background-color: #ff8600 !important;
 }
 
+/* radion button */
+.css-u4tvz2-MuiFormLabel-root.Mui-focused {
+    color: #000000;
+}
+
 
 
 
