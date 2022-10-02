@@ -229,8 +229,7 @@ function S_Booking() {
 
                 </form>
             </div>
-
-            <hr></hr>
+ 
 
             {/* heading */}
 

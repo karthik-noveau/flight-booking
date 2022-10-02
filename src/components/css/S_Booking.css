@@ -256,6 +256,13 @@ table tr td{
         height: 42px;
         border-radius: 2px;
     }
+    .result_main_cont {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: -48px;
+    }
 }
 
 
