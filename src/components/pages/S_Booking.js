@@ -328,6 +328,7 @@ function S_Booking() {
                     onClose={handleClose}
                     aria-labelledby="customized-dialog-title"
                     open={open}
+                    
                 >
                     <form className='popup_form'>
 
