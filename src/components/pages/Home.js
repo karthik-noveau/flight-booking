@@ -16,12 +16,14 @@ import TextField from '@mui/material/TextField';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
 import Button from '@mui/material/Button';
 import '../css/Home.css'
 
 import { stateName } from '../Data/statesName';
 import moment from 'moment';
+ 
 
 function Home() {
     const settings = {
@@ -89,11 +91,10 @@ function Home() {
     }
     console.log("d1 " + data.fromvalue)
     console.log("d2 " + data.tovalue)
-    // console.log("d3 " + moment(value).format('YYYY-MM-DD'))
 
+    //materail ui css
 
-
-
+ 
 
 
     return (
@@ -169,10 +170,19 @@ function Home() {
                                     label="Selected date"
                                     value={value}
                                     minDate={dayjs(d2)}
-
                                     onChange={dateStateHandler}
                                     style={{ color: "#ff8600" }}
                                     renderInput={(params) => <TextField {...params} />}
+                                    className="deskdate"
+                                />
+                                <MobileDatePicker
+                                    label="Selected date"
+                                    value={value}
+                                    minDate={dayjs(d2)}
+                                    onChange={dateStateHandler}
+                                    style={{ color: "#ff8600" }}
+                                    renderInput={(params) => <TextField {...params} />}
+                                    className="mbdate"
                                 />
                             </Stack>
                         </LocalizationProvider>
@@ -183,6 +193,7 @@ function Home() {
                                 to={{ pathname: '/S_Booking' }}
                                 state={{ data: data }}
                                 onClick={LinkHandler}
+                                className="link"
                             >
 
                                 <Button variant="contained" className='f_b_1'>Search</Button>

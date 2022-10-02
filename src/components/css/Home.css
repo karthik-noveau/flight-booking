@@ -56,6 +56,10 @@
     margin: 16px 26px 14px 22px;
 
 }
+.f_2 .mbdate{
+    display: none;
+    
+}
 
 .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
     padding: 9.5px 11px !important;
@@ -65,6 +69,9 @@
 
 .f_b {
     margin-right: 20px !important;
+}
+.f_b .link{
+    text-decoration:none;
 }
 
 .f_b .f_b_1{
@@ -89,8 +96,8 @@
 }
 
 .img_cont .txt_1 {
-    margin: 45px 0px 27px 0px;
-    font-size: 32px;
+    margin: 20px 0px 14px 0px;
+    font-size: 31px;
     font-weight: bold;
 }
 
@@ -171,6 +178,21 @@
     .f_b {
         margin-right: 0px !important;
     }
+    .f_2 .deskdate{
+        display: none;
+    }
+    .f_2 .mbdate{
+        display: block;
+    }
+    .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus{
+        border-color: #ff8600 !important;
+    }
+    .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+        color:#ff8600 !important;
+    }
+    .css-195y93z-MuiButtonBase-root-MuiPickersDay-root.Mui-selected{
+        background-color:#ff8600 !important;
+    }
     .form_cont {
         padding: 26px 0px;
         display: flex;
@@ -193,12 +215,16 @@
     }
     .img_1 {
         position: relative;
-        width: 184px;
-        height: 235px;
+        width: 117px;
+        height: 171px;
         box-shadow: inset 0px -79px 59px -23px #1e1e1e;
         border-radius: 8px;
         margin: 10px;
         cursor: pointer;
+    }
+    .img_1 .img_1_txt p {
+        font-size: 13px;
+        margin-top: 5px;
     }
     .offer_cont {
         margin-top: -8px;
