@@ -95,6 +95,9 @@ justify-content:center;
         left: -18px;
         top: 6px;
     }
+    .cus_i{
+        font-size:20px !important;
+    }
     .i_cont {
         padding: 6px 0px;
         display: flex;

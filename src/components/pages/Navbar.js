@@ -35,8 +35,8 @@ function Navbar() {
                             <TbDiscount2 className='n_icons' />
                             <p>Offers</p>
                         </div>
-                        <div className='f_i_cont'>
-                            <FiPhoneCall className='n_icons' />
+                        <div className='f_i_cont '>
+                            <FiPhoneCall className='n_icons cus_i' />
                             <p id="call_icon">Customer services</p>
                         </div>
                         <div className='f_i_cont login'>
