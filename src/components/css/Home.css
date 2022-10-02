@@ -200,5 +200,10 @@
         margin: 10px;
         cursor: pointer;
     }
+    .offer_cont {
+        margin-top: -8px;
+        display: flex;
+        justify-content: center;
+    }
     
 }
