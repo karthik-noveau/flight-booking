@@ -4,6 +4,9 @@
 }
 
 /* slider */
+.slide_cont{
+    position:relative;
+}
 .slide_cont1 {
     position: relative;
     width: 90%;
@@ -50,7 +53,7 @@
 .form_main_cont {
     z-index: 3;
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -271,7 +274,7 @@
     .form_main_cont {
         z-index: 3;
         position: absolute;
-        top: 54%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
