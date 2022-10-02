@@ -263,5 +263,10 @@
         display: flex;
         justify-content: center;
     }
+    .details_cont p {
+        color: #3a3a3a;
+        letter-spacing: 0.3px;
+        font-size: 11px;
+    }
 
 }
