@@ -141,7 +141,7 @@ function Home() {
                         </FormControl>
 
 
-                        <RiArrowLeftRightFill />
+                        <RiArrowLeftRightFill className='arrowLinkIcon'/>
 
                         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }} className="f_1">
                             <InputLabel id="demo-simple-select-standard-label" style={{ color: "#ff8600" }}>To</InputLabel>
@@ -209,6 +209,7 @@ function Home() {
             {/* offer */}
             <div className="offer_cont">
                 <img src={"https://firebasestorage.googleapis.com/v0/b/flight-booking-d4fcf.appspot.com/o/39ec4d2f53b0c925955331e54a84de25-updbw.png?alt=media&token=93698459-cea8-495e-a5d0-8363ce99a4e1"} />
+                <img src={"https://firebasestorage.googleapis.com/v0/b/flight-booking-d4fcf.appspot.com/o/offer_mnb.png?alt=media&token=820e91a9-aafc-4c30-8aee-d3407f55be71"} />
             </div>
 
             {/* popular destination */}
