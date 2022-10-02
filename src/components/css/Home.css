@@ -211,7 +211,7 @@
         z-index: 1;
         border-radius: 4px;
         width: 85%;
-        margin-top: -9px;
+        margin-top: -5px;
         display: block;
     }
 
@@ -271,7 +271,7 @@
     .form_main_cont {
         z-index: 3;
         position: absolute;
-        top: 49%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
