@@ -60,6 +60,10 @@
     display: none;
     
 }
+.f_b{
+    width:90%;
+}
+ 
 
 .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
     padding: 9.5px 11px !important;
@@ -69,6 +73,8 @@
 
 .f_b {
     margin-right: 20px !important;
+    margin: 16px 26px 14px 22px;
+ 
 }
 .f_b .link{
     text-decoration:none;
@@ -77,7 +83,7 @@
 .f_b .f_b_1{
     background-color: #ff8600 !important;
     box-shadow: 1px 1px 18px 1px #ff860059 !important;
-    padding: 7px 23px !important;
+    padding: 7px 100% !important;
 }
 .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
     color: #ff8600 !important;
