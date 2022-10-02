@@ -277,6 +277,9 @@ table tr td{
         padding: 1px 0px;
         border: none;
     }
+    .popup_form{
+        width: 80vw !important;
+    }
 }
 
 

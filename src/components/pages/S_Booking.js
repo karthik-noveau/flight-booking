@@ -329,7 +329,7 @@ function S_Booking() {
                     aria-labelledby="customized-dialog-title"
                     open={open}
                 >
-                    <form>
+                    <form className='popup_form'>
 
                         <DialogContent>
                             <DialogContentText className="p_txt">
