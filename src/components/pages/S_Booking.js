@@ -52,7 +52,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 
 function S_Booking() {
     const location = useLocation();
-    const history =useNavigate();
+    const history = useNavigate();
     const linkdata = location.state.data;
 
 
@@ -85,7 +85,7 @@ function S_Booking() {
     const [nameValue, setNameValue] = useState('')
     const [emailValue, setEmailValue] = useState('')
     const [phnoValue, setPhnoValue] = useState('')
-    const [accomValue, setAccomValue] =useState('')
+    const [accomValue, setAccomValue] = useState('')
 
     const [sendData, setSendData] = useState(
         {
@@ -95,8 +95,8 @@ function S_Booking() {
             fromvalue: '',
             tovalue: '',
             datevalue: '',
-            accomvalue:'',
-           
+            accomvalue: '',
+
         }
     )
 
@@ -106,20 +106,20 @@ function S_Booking() {
         setSendData({
             namevalue: nameValue,
             emailvalue: emailValue,
-            phnovalue: phnoValue, 
+            phnovalue: phnoValue,
             fromvalue: linkdata.fromvalue,
             tovalue: linkdata.tovalue,
             datevalue: linkdata.datevalue,
-            accomvalue:accomValue,
+            accomvalue: accomValue,
         })
-        
+
         emailjs.send('service_jo8uwra', 'template_wmzwm2a', sendData, 'M2EVIoCzUjDt4ZcXP')
             .then(response => {
                 console.log('SUCCESS!', response);
 
             }, error => {
                 console.log('FAILED...', error);
-            }).then(()=>{
+            }).then(() => {
                 history('/')
             })
 
@@ -140,7 +140,7 @@ function S_Booking() {
         setPhnoValue(e.target.value)
 
     }
-    const accomHandler =(e)=>{
+    const accomHandler = (e) => {
         setAccomValue(e.target.value)
     }
 
@@ -149,11 +149,11 @@ function S_Booking() {
         setSendData({
             namevalue: nameValue,
             emailvalue: emailValue,
-            phnovalue: phnoValue, 
+            phnovalue: phnoValue,
             fromvalue: linkdata.fromvalue,
             tovalue: linkdata.tovalue,
             datevalue: linkdata.datevalue,
-            accomvalue:accomValue,
+            accomvalue: accomValue,
         })
 
     }, [nameValue, emailValue, phnoValue, accomValue])
@@ -224,7 +224,7 @@ function S_Booking() {
                     </LocalizationProvider>
 
                     <Stack spacing={2} direction="row" className='f_bb'>
-                        <Button variant="contained" className='f_b_1'>Search</Button>
+                        <Button variant="contained" className='f_b_1'>You Searched</Button>
                     </Stack>
 
                 </form>
@@ -233,11 +233,14 @@ function S_Booking() {
             <hr></hr>
 
             {/* heading */}
-            <div className='main_heading_title'>
-                <div className='heading_title'>
 
+            {/* search booking result */}
+
+            <div className="result_main_cont">
+                {/* travel details */}
+                <div className="result_cont">
                     <table>
-                        <tr>
+                        <tr className="data_heading">
                             <td>Airlines</td>
                             <td>Departure</td>
                             <td>Duration</td>
@@ -245,17 +248,50 @@ function S_Booking() {
                             <td>Price</td>
                             <td></td>
                         </tr>
-                    </table>
+                   
+                    {
+                        data.map((item) => {
+                            return (
+                                
+                                    <tr>
 
+                                        <td>
+                                            <div className='r_d1'>
+                                                <div className='r_d2'>
+                                                    <img src='https://firebasestorage.googleapis.com/v0/b/flight-booking-d4fcf.appspot.com/o/SG_2x.png?alt=media&token=754f59b8-35f7-4f69-ab78-cf1885b68d30' />
+                                                    <div className='r_d3'>
+                                                        <p>{item.flight}</p>
+                                                        <p>SG-123</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td><p className='r_t1'>23:55</p></td>
+
+                                        <td> <p>9h 40m</p></td>
+
+                                        <td>  <p>09:35</p></td>
+
+                                        <td> <h3>{item.price}</h3></td>
+
+                                        <td>    <div className='f_b2'>
+                                            <Stack spacing={2} direction="row" >
+                                                <Button variant="contained" onClick={handleClickOpen}>Book here</Button>
+                                            </Stack>
+                                            <p className='r_d1_p'>Flight Details</p>
+                                        </div></td>
+                                    </tr>
+                             
+
+                            )
+                        })
+                    }
+                    </table>
 
                 </div>
             </div>
-
-            {/* search booking result */}
-
-            <div className="result_main_cont">
-                {/* travel details */}
-                {data.map((item) => {
+            {/* {data.map((item) => {
                     return (
                         <div className="result_cont">
                             <p className='r_d1p1'><span>{item.top_off_bold}</span> Get FLAT 25% off on SEATS!</p>
@@ -283,8 +319,8 @@ function S_Booking() {
                     )
                 })
 
-                }
-            </div>
+                } */}
+
 
 
 
@@ -343,19 +379,19 @@ function S_Booking() {
 
                         </DialogContent>
 
-                        <FormControl style={{marginLeft:"15px", marginTop:"27px"}}>
+                        <FormControl style={{ marginLeft: "15px", marginTop: "27px" }}>
                             <FormLabel id="demo-radio-buttons-group-label">Accomodation</FormLabel>
                             <RadioGroup
                                 aria-labelledby="demo-radio-buttons-group-label"
-                             
+
                                 name="radio-buttons-group"
-                                style={{color:"black"}}
+                                style={{ color: "black" }}
                                 onChange={accomHandler}
                             >
-                                <FormControlLabel value="Hotel" control={<Radio  style={{color:"black"}}/>} label="Hotel"  />
-                                <FormControlLabel value="Hostel" control={<Radio style={{color:"black"}} />} label="Hostel" />
-                                <FormControlLabel value="No need" control={<Radio style={{color:"black"}} />} label="No need" />
-                                
+                                <FormControlLabel value="Hotel" control={<Radio style={{ color: "black" }} />} label="Hotel" />
+                                <FormControlLabel value="Hostel" control={<Radio style={{ color: "black" }} />} label="Hostel" />
+                                <FormControlLabel value="No need" control={<Radio style={{ color: "black" }} />} label="No need" />
+
                             </RadioGroup>
                         </FormControl>
 

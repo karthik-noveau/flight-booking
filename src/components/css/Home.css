@@ -194,7 +194,7 @@
 
 /* responsive for 700px */
 
-@media (max-width:700px) {
+@media (max-width:1037px) {
 
     .form_cont .f_2 {
         margin: 16px 26px 14px 22px;
