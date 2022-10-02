@@ -29,7 +29,7 @@ function Home() {
         autoplay: true,
         autoplaySpeed: 5000,
         arrows: false,
-        dots: true,
+        dots: false,
         fade: true,
         speed: 700,
         infinite: true,
