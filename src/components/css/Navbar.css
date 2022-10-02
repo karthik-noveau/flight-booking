@@ -7,6 +7,9 @@
 .nav_main_cont{
 display: flex;
 justify-content:center;
+position:relative;
+background-color:#dedcdc42;
+border-bottom:1px solid #9e9e9e;
 }
 .nav_cont{
     height:70px;
@@ -14,7 +17,7 @@ justify-content:center;
     display:flex;
     align-items:center;
     justify-content: space-between;
-    /* background-color:#dedcdc42; */
+  
      
 }
 .login {
@@ -82,6 +85,7 @@ justify-content:center;
         display: flex;
         align-items: center;
         justify-content: space-between;
+      
         /* background-color: #dedcdc42; */
     }
     .nav_cont h1 {
