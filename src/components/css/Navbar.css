@@ -4,22 +4,48 @@
    
     
 }
+.nav_main_cont{
+display: flex;
+justify-content:center;
+}
 .nav_cont{
     height:70px;
+    width:70%;
     display:flex;
     align-items:center;
     justify-content: space-between;
-    background-color:#dedcdc42;
+    /* background-color:#dedcdc42; */
      
 }
-.nav_cont h1 {
-    font-size: 32px;
-    margin-left: 20px;
-    color: white;
+.login {
+    position: absolute;
+    top: 13px;
+    right: -14px;
     background-color: #ff8600;
-    /* background-color:#00a759; */
-    padding: 3px 9px;
-    border-radius: 5px;
+    color: white !important;
+    border-radius: 7px;
+    padding: 8px 10px;
+}
+ 
+.logo .logo_fli {
+    position:relative;
+    top:3px;
+    font-size:30px;
+    transform: rotate(45deg);
+}
+.nav_cont h1 {
+    font-size: 26px !important;
+    margin-left: 20px;
+    color: white !important;
+    background-color: #000000;
+    /* padding: 3px 9px; */
+    border-radius: 29px !important;
+    position: absolute;
+    left: -15px;
+    top:12px;
+    padding-bottom: 10px;
+    padding: 0px 14px !important;
+    padding-bottom: 7px !important;
 }
 .f_i_cont{
     display: flex;
@@ -47,13 +73,26 @@
     .nav_cont{
         flex-direction:column;
     }
-    .nav_cont{
-        height: 131px;
-        padding: 15px;
+    .nav_cont {
+        margin-top: 54px;
+        /* margin-bottom: 47px; */
+        height: 58px;
+        padding: 13px 0px 15px 0px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: #dedcdc42;
+        /* background-color: #dedcdc42; */
+    }
+    .nav_cont h1 {
+        font-size: 32px;
+        margin-left: 20px;
+        color: black;
+        /* background-color: #00a759; */
+        padding: 3px 9px;
+        border-radius: 5px;
+        position: absolute;
+        left: -18px;
+        top: 6px;
     }
     .i_cont {
         padding: 6px 0px;
@@ -70,7 +109,6 @@
     }
     #call_icon{
         margin-left: 5px;
-        margin-top: 17px;
     }
     .i_cont {
         padding: 0px 0px;
