@@ -1,6 +1,8 @@
 *{
     padding: 0px;
     margin:0px;
+   
+    
 }
 .nav_cont{
     height:70px;
@@ -35,4 +37,45 @@
 }
 .n_icons{
     font-size:27px;
+}
+
+
+
+
+/* responsive for 700px */
+@media (max-width:700px) {
+    .nav_cont{
+        flex-direction:column;
+    }
+    .nav_cont{
+        height: 131px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #dedcdc42;
+    }
+    .i_cont {
+        padding: 6px 0px;
+        display: flex;
+    }.f_i_cont {
+        font-size: 17px;
+        margin: 0px 20px;
+    }
+    .n_icons {
+        font-size: 22px;
+    }
+    .f_i_cont p {
+        margin-left: 3px;
+    }
+    #call_icon{
+        margin-left: 5px;
+        margin-top: 17px;
+    }
+    .i_cont {
+        padding: 0px 0px;
+    }
+    .nav_cont h1 {
+        margin-bottom: 16px;
+    }
 }

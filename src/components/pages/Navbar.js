@@ -35,7 +35,7 @@ function Navbar() {
                     </div>
                     <div  className='f_i_cont'>
                         <FiPhoneCall className='n_icons'/>
-                        <p>Customer services</p>
+                        <p id="call_icon">Customer services</p>
                     </div>
                     <div  className='f_i_cont'>
                         <IoIosContact className='n_icons'/>

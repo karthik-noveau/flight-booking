@@ -44,8 +44,8 @@ function Home() {
     const d2 = moment(d1).format("YYYY-MM-DD")
 
     const [value, setValue] = useState(dayjs(d2));
-    const [fromValue, setFromValue] = useState("1");
-    const [toValue, setToValue] = useState("1");
+    const [fromValue, setFromValue] = useState("Not selectd");
+    const [toValue, setToValue] = useState("Not selected");
     const [dateValue, setDateValue] = useState('')
 
 
@@ -168,7 +168,7 @@ function Home() {
                                 <DesktopDatePicker
                                     label="Selected date"
                                     value={value}
-                                    minDate={dayjs('2017-01-01')}
+                                    minDate={dayjs(d2)}
 
                                     onChange={dateStateHandler}
                                     style={{ color: "#ff8600" }}

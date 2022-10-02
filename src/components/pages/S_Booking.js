@@ -347,7 +347,7 @@ function S_Booking() {
                             <FormLabel id="demo-radio-buttons-group-label">Accomodation</FormLabel>
                             <RadioGroup
                                 aria-labelledby="demo-radio-buttons-group-label"
-                                defaultValue="Hotel"
+                             
                                 name="radio-buttons-group"
                                 style={{color:"black"}}
                                 onChange={accomHandler}

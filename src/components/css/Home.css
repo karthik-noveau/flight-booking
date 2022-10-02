@@ -1,5 +1,6 @@
 * {
     font-family: sans-serif;
+    
 }
 
 /* slider */
@@ -27,6 +28,7 @@
 .offer_cont img {
     z-index: 1;
     border-radius: 4px;
+    width: 85%;
 }
 
 /* main trip location  */
@@ -156,4 +158,47 @@
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
+}
+
+
+
+/* responsive for 700px */
+
+@media (max-width:700px) {
+    .form_cont{
+        flex-direction: column;
+    }
+    .f_b {
+        margin-right: 0px !important;
+    }
+    .form_cont {
+        padding: 26px 0px;
+        display: flex;
+        align-items: center;
+        background-color: white;
+        border-radius: 3px;
+    }
+    .form_main_cont {
+        z-index: 3;
+        position: absolute;
+        top: 49%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .img_main_cont {
+        flex-wrap: wrap;
+    }
+    .img_main_cont {
+        width: 100%;
+    }
+    .img_1 {
+        position: relative;
+        width: 184px;
+        height: 235px;
+        box-shadow: inset 0px -79px 59px -23px #1e1e1e;
+        border-radius: 8px;
+        margin: 10px;
+        cursor: pointer;
+    }
+    
 }
