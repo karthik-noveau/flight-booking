@@ -223,9 +223,7 @@ function S_Booking() {
                         </Stack>
                     </LocalizationProvider>
 
-                    <Stack spacing={2} direction="row" className='f_bb'>
-                        <Button variant="contained" className='f_b_1'>You Searched</Button>
-                    </Stack>
+                
 
                 </form>
             </div>
@@ -238,7 +236,7 @@ function S_Booking() {
             <div className="result_main_cont">
                 {/* travel details */}
                 <div className="result_cont">
-                    <table>
+                    <table className="data_heading_row">
                         <tr className="data_heading">
                             <td>Airlines</td>
                             <td>Departure</td>
