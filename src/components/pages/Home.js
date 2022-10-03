@@ -24,8 +24,12 @@ import '../css/Home.css'
 import { stateName } from '../Data/statesName';
 import moment from 'moment';
  
+ 
 
 function Home() {
+
+
+
     const settings = {
         draggable: true,
         autoplay: true,
