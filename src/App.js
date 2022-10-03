@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoad(false)
-    }, 5000)
+    }, 3000)
   })
 
   return (
@@ -25,12 +25,10 @@ function App() {
           (
             <div>
               <Navbar />
-
               <Routes>
                 <Route path='/' element={<Home />} exact />
                 <Route path='/S_Booking' element={<S_Booking />} />
               </Routes>
-
               <Footer style={{ position: "absolute", bottom: "0px" }} />
             </div>
 
